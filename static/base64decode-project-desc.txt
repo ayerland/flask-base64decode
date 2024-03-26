@@ -1,0 +1,38 @@
+Base64 is a binary-to-text encoding scheme commonly used to represent binary data as a sequence of printable ASCII characters. It is widely used to transmit binary data, such as images or files, over protocols designed to handle textual data. Base64 decoding is the process of converting a Base64-encoded string back into its original binary representation.
+
+The Base64 encoding scheme works by dividing the input binary data into groups of 6 bits each. Each group is then represented by a corresponding character from a predefined set of 64 characters (hence the name "Base64"). The 64 characters consist of 26 uppercase letters (A-Z), 26 lowercase letters (a-z), 10 digits (0-9), and two additional characters, typically '+', and '/'. Additionally, Base64 may use '=' as padding at the end of the encoded string to ensure the length is a multiple of 4 characters.
+
+Here's a step-by-step mathematical explanation of how Base64 decoding works:
+
+1. Convert characters to their Base64 values:
+   First, we need to establish a mapping between the 64 Base64 characters and their corresponding integer values. We assign 0 to 'A', 1 to 'B', ..., 25 to 'Z', 26 to 'a', 27 to 'b', ..., 51 to 'z', 52 to '0', 53 to '1', ..., 61 to '9', 62 to '+', and 63 to '/'. 
+
+2. Convert Base64 characters to binary:
+   Take each character in the Base64-encoded string and convert it to its corresponding 6-bit binary representation. For example:
+   
+   'A' -> 000000 (0 in binary)
+   'B' -> 000001 (1 in binary)
+   'C' -> 000010 (2 in binary)
+   ...
+   'Z' -> 110011 (51 in binary)
+   'a' -> 110100 (52 in binary)
+   'b' -> 110101 (53 in binary)
+   ...
+   '9' -> 111101 (61 in binary)
+   '+' -> 111110 (62 in binary)
+   '/' -> 111111 (63 in binary)
+
+3. Combine binary groups:
+   Concatenate all the binary groups together to form a single binary string.
+
+4. Pad the binary string (if necessary):
+   Add padding if the length of the binary string is not a multiple of 8 bits. Pad with '0' bits on the right to reach a multiple of 8.
+
+5. Convert the binary string to bytes:
+   Divide the binary string into 8-bit segments and convert each segment into its corresponding byte value.
+
+6. Reconstruct the original binary data:
+   Combine all the bytes obtained in the previous step to reconstruct the original binary data.
+
+In summary, Base64 decoding converts the Base64-encoded string back into binary data by reversing the encoding process, converting Base64 characters to their corresponding 6-bit binary representations, concatenating them, and then converting the resulting binary string back to the original binary data.
+

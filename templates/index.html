@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Base64 Decode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+</head>
+<body>
+    <header>
+      <div class="inner">
+        <a href="/">
+          <h1>lusers.dev</h1>
+        </a>
+        <h2></h2>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+
+            <h1 id="content-mainsection">Base64 Decode</h1>
+            
+            <br>
+            <textarea name="64base_decode" form="64baseform" required></textarea>
+            <br><br>
+            <form action="/" method="post" id="64baseform">
+                <input type="submit" value="DECODE" id="process" style="text-align: center;">
+            </form>
+            <br><br>            
+            {% for message in get_flashed_messages() %}
+                 <h2>{{ message }}</h2>
+            {% endfor %}
+            <br><br> 
+
+           <object type="text/html" data="/static/base64decode-project-desc.txt"></object><br><br>
+
+        </section>
+
+        <aside id="sidebar">
+          <p><h2><i>References:</i></h2> 
+            <ul>
+              <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+              <li><a href="https://docker.com/" target="_blank" rel="noopener noreferrer">Docker</a></li>
+              <li><a href="https://python.org/" target="_blank" rel="noopener noreferrer">Python</a></li>
+              <li><a href="https://palletsprojects.com/p/flask/" target="_blank" rel="noopener noreferrer">Flask</a></li>
+           </ul>
+          </p>
+        </aside>
+
+      </div>
+    </div>
+</body>
+</html>
